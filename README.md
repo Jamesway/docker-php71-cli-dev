@@ -2,7 +2,7 @@
 Creates an image with Composer and phpspec for development.
 
 ## Installation
-'docker pull jamesway/php71-cli-dev'
+`docker pull jamesway/php71-cli-dev`
 
 ## Usage
 
@@ -17,10 +17,10 @@ docker run --rm -v $(pwd):/app jamesway/php71-cli-dev composer dump-autoload
 
 ```
 
-***phpspec**
+**phpspec**
 ```docker
 
-# describe a class
+# describe a class - note the quotes
 docker run -itv --rm -v $(pwd):/app jamesway/php71-cli-dev desc "Namespace\Class"
 
 # run tests in a directory
