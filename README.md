@@ -9,22 +9,22 @@ Creates an image with Composer and phpspec for development.
 **Composer**
 ```
 # examples - note the period in the laravel example
-docker run --rm -v $(pwd):/app jamesway/php71-cli-dev <pre><b>composer --prefer-dist laravel/laravel .</b></pre>
+docker run --rm -v $(pwd):/app jamesway/php71-cli-dev composer --prefer-dist laravel/laravel .
 
-docker run --rm -v $(pwd):/app jamesway/php71-cli-dev <pre><b>composer require vendor/package:tag</b></pre>
+docker run --rm -v $(pwd):/app jamesway/php71-cli-dev composer require vendor/package:tag
 
-docker run --rm -v $(pwd):/app jamesway/php71-cli-dev <pre><b>composer dump-autoload</b></pre>
+docker run --rm -v $(pwd):/app jamesway/php71-cli-dev composer dump-autoload
 
 ```
 
 **phpspec**
 ```
 # describe a class - note the quotes
-docker run -itv --rm -v $(pwd):/app jamesway/php71-cli-dev <pre><b>phpspec desc "Namespace\Class"</b></pre>
+docker run -itv --rm -v $(pwd):/app jamesway/php71-cli-dev phpspec desc "Namespace\Class"
 
 # run tests in a directory
-docker run -itv --rm -v $(pwd):/app jamesway/php71-cli-dev <pre><b>phpspec run spec/path/to/specs</b></pre>
+docker run -itv --rm -v $(pwd):/app jamesway/php71-cli-dev phpspec run spec/path/to/specs
 
 # run complete test suit
-docker run -itv --rm -v $(pwd):/app jamesway/php71-cli-dev <pre><b>phpspec run</b></pre>
+docker run -itv --rm -v $(pwd):/app jamesway/php71-cli-dev phpspec run
 ```
