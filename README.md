@@ -7,7 +7,7 @@ Creates an image with Composer and phpspec for development.
 ## Usage
 
 **Composer**
-```docker
+```
 # examples - note the period in the laravel example
 docker run --rm -v $(pwd):/app jamesway/php71-cli-dev <pre><b>composer --prefer-dist laravel/laravel .</b></pre>
 
@@ -18,8 +18,7 @@ docker run --rm -v $(pwd):/app jamesway/php71-cli-dev <pre><b>composer dump-auto
 ```
 
 **phpspec**
-```docker
-
+```
 # describe a class - note the quotes
 docker run -itv --rm -v $(pwd):/app jamesway/php71-cli-dev <pre><b>phpspec desc "Namespace\Class"</b></pre>
 
