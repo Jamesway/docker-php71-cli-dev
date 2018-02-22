@@ -9,7 +9,7 @@ Creates an image with Composer and phpspec for development.
 **Composer**
 ```
 # examples - note the period in the laravel example
-docker run --rm -v $(pwd):/app jamesway/php71-cli-dev composer create-project --prefer-dist laravel/laravel .
+docker run --rm -v $(pwd):/app jamesway/php71-cli-dev composer create-project --prefer-dist laravel/lumen .
 
 docker run --rm -v $(pwd):/app jamesway/php71-cli-dev composer require analogue/orm
 
