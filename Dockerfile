@@ -2,6 +2,10 @@ FROM php:7.1-cli-alpine
 
 MAINTAINER James <j@mesway.io>
 
+RUN apk update \
+    && apk --no-cache add git
+    # clean up
+
 # composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
 COPY --from=composer:1.5 /usr/bin/composer /usr/bin/composer
