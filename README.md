@@ -16,9 +16,14 @@ docker run --rm -v $(pwd):/app jamesway/php71-cli-dev composer require analogue/
 docker run --rm -v $(pwd):/app jamesway/php71-cli-dev composer dump-autoload
 
 ```
-*NOTE: I'm not a fan of aliasing a docker command since the alias insulates you from the image version. If you end up wanting to use a different image than the alias, you need to remember to update the alias. An alias does, however, provide an easy way to get a composer container to work with PHPStorm. In that case, I suggest aliasing with some of the docker image tag info eg:
+*NOTE: I'm not a fan of aliasing a docker command since the alias insulates you from the image version. If you end up wanting to use a different image than the alias, you need to remember to update the alias. An alias does, however, provide an easy way to get a composer container to work with PHPStorm. If aliasing, I suggest using some of the docker image tag info eg:
 ```
-alias composer71="docker run --rm -itv $(pwd):/app jamesway/php71-cli-dev composer"
+# set permanent alias on a mac
+cp ~/.bash_profile ~/.bash_profile.bak
+
+echo -e '\nalias composer71="docker run --rm -itv $(pwd):/app jamesway/php71-cli-dev composer"'
+
+source ~/.bash_profile
 ```
 
 **phpspec**
