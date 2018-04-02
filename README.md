@@ -23,6 +23,9 @@ docker run --rm -v $(pwd):/app jamesway/php71-cli composer dump-autoload
 
 ### phpspec
 phpspec is interactive, so -itv
+
+also make sure to configure suite for your namespaces in .phpspec.yml  
+http://www.phpspec.net/en/stable/cookbook/configuration.html#psr-4
 ```
 # two ways to reference a class, quotes or escaped backslash
 
