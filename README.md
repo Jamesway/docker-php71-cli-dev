@@ -1,35 +1,42 @@
-# Dockerfile - Php 7.1 Client for Development
-Creates an image with Composer and phpspec for development.
+## php 7.1 Client for Development
+Docker image with Composer and phpspec for development.
+
+I like to use run --rm to remove the container after it runs
 
 ## Installation
-`docker pull jamesway/php71-cli-dev`
+```
+# optional since docker will automatically pull it when you use it
+docker pull jamesway/php71-cli
+```
 
 ## Usage
-
-**Composer**
+### Composer
 ```
-# examples - note the period in the laravel example
-docker run --rm -v $(pwd):/app jamesway/php71-cli-dev composer create-project --prefer-dist laravel/lumen .
+# note the period at the end
+docker run --rm -v $(pwd):/app jamesway/php71-cli composer create-project --prefer-dist laravel/lumen .
 
-docker run --rm -v $(pwd):/app jamesway/php71-cli-dev composer require analogue/orm
+docker run --rm -v $(pwd):/app jamesway/php71-cli composer require analogue/orm
 
-docker run --rm -v $(pwd):/app jamesway/php71-cli-dev composer dump-autoload
+docker run --rm -v $(pwd):/app jamesway/php71-cli composer dump-autoload
 
+```  
+
+### phpspec
+phpspec is interactive, so -itv
 ```
+# two ways to reference a class, quotes or escaped backslash
 
-**phpspec**
-```
-# describe a class - note the quotes and escaped backslash
-docker run -itv --rm -v $(pwd):/app jamesway/php71-cli-dev phpspec desc "Namespace\Class"
-docker run -itv --rm -v $(pwd):/app jamesway/php71-cli-dev phpspec desc Namespace\\Class
+# describe a class to create the spec
+docker run --rm -itv $(pwd):/app jamesway/php71-cli phpspec desc "Namespace\Class"
+docker run --rm -itv $(pwd):/app jamesway/php71-cli phpspec desc Namespace\\Class
 
-# have phpspec create the class if it doesn't exist and run the spec test on it
-docker run -itv --rm -v $(pwd):/app jamesway/php71-cli-dev phpspec run "Namespace\Class"
-docker run -itv --rm -v $(pwd):/app jamesway/php71-cli-dev phpspec run Namespace\\Class
+# have phpspec create the class if necessary and run the spec
+docker run --rm -itv $(pwd):/app jamesway/php71-cli phpspec run "Namespace\Class"
+docker run --rm -itv $(pwd):/app jamesway/php71-cli phpspec run Namespace\\Class
 
-# run specs in a directory
-docker run -itv --rm -v $(pwd):/app jamesway/php71-cli-dev phpspec run spec/path/to/specs
+# run all specs in a directory
+docker run --rm -itv $(pwd):/app jamesway/php71-cli phpspec run spec/path/to/specs
 
 # run the complete spec suite
-docker run -itv --rm -v $(pwd):/app jamesway/php71-cli-dev phpspec run
+docker run --rm -itv $(pwd):/app jamesway/php71-cli phpspec run
 ```
