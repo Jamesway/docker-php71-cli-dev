@@ -3,7 +3,11 @@ FROM php:7.1-cli-alpine
 MAINTAINER James <j@mesway.io>
 
 RUN apk update \
-    && apk --no-cache add git
+    && apk --no-cache add git \
+                          libmcrypt-dev \
+                          libmcrypt \
+                          mysql-client \
+    && docker-php-ext-install mcrypt pdo_mysql
     # clean up
 
 # composer
